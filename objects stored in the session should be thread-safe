@@ -1,0 +1,15 @@
+Just to make it clearer than if it was in a comment: 
+Each HTTP request will be handled by an arbitrary thread.
+Tomcat (and other app servers) use a pool of threads, pick a thread from the pool, execute the request,
+and give back the thread to the pool.
+
+The HTTP session is completely orthogonal to the threading: 
+several requests from the same session may be handled by different threads. 
+A thread executes requests from several sessions. There are typically much more parallel sessions than threads in the pool.
+And finally, you may very well have two threads executing two requests for the same session.
+That implies that the objects stored in the session should be thread-safe, 
+or that a synchronization mechanisme should be used to access non-thread-safe objects stored in the session.
+
+Moreover, multiple frames or tabs of a given browser share the same HTTP session. You'll have a different session if you start a different browser (Chrome in addition to Firefox, for example), or if you use a browser on another machine.
+
+http://stackoverflow.com/questions/8575152/tomcat-creating-new-thread-for-same-session
