@@ -1,0 +1,24 @@
+
+public class DoubleTrouble {
+
+    public static void main(String[] args) {
+        Double d1 = (5.0d - 5.0d) *  1.0d;
+        Double d2 = (5.0d - 5.0d) * -1.0d;
+        System.out.println(d1.equals(d2));
+        
+        
+        double d3 = (5.0d - 5.0d) *  1.0d;
+        double d4 = (5.0d - 5.0d) * -1.0d;
+        System.out.println(d3 == d4);
+        
+        BigDecimal d5 = new BigDecimal("1.2");
+        BigDecimal d6 = new BigDecimal("1.20");
+        System.out.println(d5.equals(d6));
+
+        
+        Double v = null;
+        Double d = true ? v : 0.0d;
+        System.out.println(d);
+    }
+
+}
