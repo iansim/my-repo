@@ -1,0 +1,9 @@
+Finding maximum possible key length
+To find maximum key length allowed by an encryption algorithm you can useCipher.getMaxAllowedKeyLength() method.  For example for AES algorithm you can do - 
+
+int maxKeyLength = Cipher.getMaxAllowedKeyLength("AES");
+
+
+Removing the maximum key size restriction
+Download local_policy.jar and US_export_policy.jar extracted from above zip file to the $JAVA_HOME/jre/lib/security 
+Note: These jars will be already be present there so you will have to overwrite them.
