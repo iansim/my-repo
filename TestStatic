@@ -1,0 +1,16 @@
+
+public class TestStatic {
+
+    private static final class Foo {
+        static final Foo INSTANCE = new Foo(); // 2
+        static final String NAME = Foo.class.getName(); // 3
+        Foo() {
+                System.err.println("Hello, my name is " + NAME);
+        }
+    }
+    public static void main(String[] args) {
+            System.err.println("Your name is what?\nYour name is who?\n");
+            new Foo(); // 1
+    }
+
+}
